@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamCompressor.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout>
+            <Label
+                FontAttributes="Bold,Italic"
+                FontSize="Body"
+                MaxLines="5"
+                Text="{Binding OSVersion}" />
+
+            <Label Text="{Binding ImageSource, StringFormat='Image: {0}'}" />
+            <Image Source="{Binding ImageSource}" />
+            <Label Margin="0,10,0,0" Text="{Binding ImageSize, StringFormat='Original size: {0} in MBs'}" />
+
+            <Button Command="{Binding PickImageCommand}" Text="Pick image" />
+
+            <Button Command="{Binding ResizeImageCommand}" Text="Resize image" />
+            <Label Margin="0,10,0,0" Text="{Binding ResizedImageSize, StringFormat='Final size: {0} in MBs'}" />
+            <Label Text="{Binding ResizedImageSource, StringFormat='Image: {0}'}" />
+            <Image Source="{Binding ResizedImageSource}" />
+
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
