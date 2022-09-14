@@ -113,7 +113,7 @@ namespace XamCompressor.ViewModels
                 }
                 Image = File.ReadAllBytes(ImageSelected.FullPath);
                 ImageSize = BytesToMB(Image.Length).ToString();
-                ImageSource = ImageSelected.FullPath;
+                //ImageSource = ImageSelected.FullPath;
             });
 
             ResizeImageCommand = new DelegateCommand(async () =>
