@@ -113,7 +113,7 @@ namespace XamCompressor.ViewModels
                 }
                 Image = File.ReadAllBytes(ImageSelected.FullPath);
                 ImageSize = BytesToMB(Image.Length).ToString();
-                //ImageSource = ImageSelected.FullPath;
+                ImageSource = ImageSelected.FullPath;
             });
 
             ResizeImageCommand = new DelegateCommand(async () =>
@@ -130,10 +130,21 @@ namespace XamCompressor.ViewModels
                 }
                 else
                 {
-                    ImageOutputModel resizer2 = await DependencyService.Get<IResizeImageService>().ResizeImage(ImageSelected.FullPath);
-                    ResizedImage = resizer2.ResizedImageBytes;
-                    ResizedImageSource = resizer2.ResizedImagePath;
-                    ResizedImageSize = BytesToMB(ResizedImage.Length).ToString();
+                    if(Device.RuntimePlatform == Device.Android)
+                    {
+                        ImageOutputModel resizer = await DependencyService.Get<IResizeImageService>().ResizeImage(ImageSelected.FullPath);
+                        ResizedImage = resizer.ResizedImageBytes;
+                        ResizedImageSource = resizer.ResizedImagePath;
+                        ResizedImageSize = BytesToMB(ResizedImage.Length).ToString();
+                    }
+                    else
+                    {
+                        ImageOutputModel resizer = await DependencyService.Get<IResizeImageService>().ResizeImage(Image,ImageSelected.FullPath);
+                        ResizedImage = resizer.ResizedImageBytes;
+                        ResizedImageSource = resizer.ResizedImagePath;
+                        ResizedImageSize = BytesToMB(ResizedImage.Length).ToString();
+                    }
+             
                 }
             });
         }

@@ -27,7 +27,7 @@ namespace XamCompressor.Droid.DependencyServices
 
     public class ResizeImageService : IResizeImageService
     {
-        public ImageOutputModel ResizeImage(byte[] imageBytes, string imagePath)
+        public async Task<ImageOutputModel> ResizeImage(byte[] imageBytes, string imagePath)
         {
             var file = imagePath.Split('/').Last().Split('.');
             string fileName = file[0];

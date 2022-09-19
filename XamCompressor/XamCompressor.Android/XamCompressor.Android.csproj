@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamCompressor\XamCompressor.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{4A77E568-21EC-4369-84A1-5B1A8F53F9AB}</Project>
       <Name>XamCompressor</Name>
     </ProjectReference>
   </ItemGroup>

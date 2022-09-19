@@ -17,7 +17,7 @@ namespace XamCompressor.DependencyServices
         /// </summary>
         /// <param name="imageBytes">The image bytes.</param>
         /// <returns>An array of byte.</returns>
-        ImageOutputModel ResizeImage(byte[] imageBytes, string imagePath);
+        Task<ImageOutputModel> ResizeImage(byte[] imageBytes, string imagePath);
 
 
         /// <summary>
